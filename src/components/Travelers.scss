@@ -1,0 +1,152 @@
+@import "../main.scss";
+
+.travelers {
+  @include flex-column;
+  .container {
+    width: 80%;
+    @include flex-column;
+    .title {
+      margin-top: 20px;
+      h2 {
+        letter-spacing: 0.04em;
+      }
+    }
+    .s2{
+        width: 100%;
+        @include flex-row;
+        height: 23em;
+    }
+    .users {
+      width: 90%;
+      height: 90%;
+      @include flex-row;
+      gap: 8%;
+      margin: 80px;
+
+      .user-container {
+        @include flex-column;
+        height: 70%;
+        width: 16%;
+        border: 3px solid #3b3b3b98; 
+        z-index: 4; 
+        border-radius: 90px;
+        position: relative;
+
+        .bahamas,
+        .mosque,
+        .paris,
+        .dubai {
+          @include flex-row;
+            .user-detail{
+                @include flex-column;
+                z-index: -1;
+                position: relative;
+                bottom: 30%;
+                font-family: $font;
+                animation: fade-out-details 1.5s ease-in-out 0s forwards;
+                h4, h5{
+                    color: rgb(255, 255, 255);
+                    margin: 2px;
+                }
+            }
+          z-index: 3;
+          width: 100%;
+          height: 100%;
+          padding-top: 100%; 
+          border-radius: 90px;
+          img {
+            position: absolute; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 90px;
+            object-fit: cover; 
+          }
+          .user {
+            position: absolute; 
+            z-index: 1; 
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 2px solid white;
+            height: 20%;
+            width: 28%;
+            background-color: pink;
+            border-radius: 100px;
+            animation: bounce 2s ease-in-out 0s infinite,drop-nothover 2s ease-in-out;
+          }
+          &:hover{
+            .user{
+                animation: raise-hover 2s ease-in-out, bounce-hover 2s ease-in-out 2s infinite;
+            }
+            .user-detail{
+                
+                animation: fade-details 2s ease-in-out 1s forwards;
+            }
+          }
+        }
+       
+      }
+    }
+  }
+  @keyframes bounce {
+     0%{
+        transform: translate(-50%, -50%);
+     }
+     50%{
+        transform: translate(-50%, -60%);
+     }
+     100%{
+        transform: translate(-50%, -50%);
+     }
+    
+  }
+  @keyframes raise-hover {
+    0%{
+        transform: translate(-50%, -50%);
+     }
+     100%{
+        transform: translate(-50%, -175%);
+     }
+    
+  }
+  @keyframes bounce-hover {
+     0%{
+        transform: translate(-50%, -175%);
+     }
+     50%{
+        transform: translate(-50%, -165%);
+     }
+     100%{
+        transform: translate(-50%, -175%);
+     }
+  }
+  @keyframes drop-nothover {
+     0%{
+        transform: translate(-50%, -175%);
+     }
+     100%{
+        transform: translate(-50%, -50%);
+     }
+  }
+  @keyframes fade-details {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        z-index: 1;
+    }
+  }
+  @keyframes fade-out-details {
+    from{
+        z-index: 1;
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        z-index: -1;
+    }
+  }
+}

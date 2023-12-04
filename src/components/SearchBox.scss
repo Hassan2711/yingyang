@@ -1,0 +1,171 @@
+@import "../main.scss";
+.search {
+    $myColor: #00add4;
+    $border: 2px solid $myColor;
+    font-family: $font;
+    @include flex-column;
+    height: 30rem;
+    background-color: $myColor;
+
+    hr {
+      width: 80%;
+      font-weight: bold;
+      margin-top: 0;
+      height: 1px;
+      background-color: white;
+      color: white;
+    }
+  
+    .container {
+      background: white;
+      width: 70%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 300px;
+      position: relative;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border-radius: 40px;
+      &.animate {
+        opacity: 1;
+        transform: translateY(0);
+        animation: drop 1.5s ease-in-out;
+      }
+      .btns{
+        border: $border;
+        width: 60%;
+        height: 15%;
+        @include flex-row;
+        gap: 2%;
+        position: relative;
+        top: 30px;
+        border-radius: 80px;
+        background-color: $myColor;
+        transform: translateY(-50px);
+          &.animate {
+            opacity: 1;
+            transform: translateY(0);
+            animation: drop1 1.5s ease-in-out;
+          }
+          button{
+            width: 50%;
+            height: 80%;
+            border-radius: 80px;
+            border: none;
+            background-color: $myColor;
+            margin: 7px;
+            font-weight: 600;
+            transition: background-color 0.5s ease;
+            color: white;
+            
+            &:hover,&.active{
+                cursor: pointer;
+                background-color:#1c4574;
+                color: white;
+               
+              }
+            }
+          }
+        }
+        .details{
+        @include flex-row;
+        gap: 43px;
+        width: 90%;
+        height: 8rem;
+        margin-top: 80px;
+        position: relative;
+          &.animate {
+            opacity: 1;
+            transform: translateY(0);
+            animation: raise 1.5s ease-in-out;     
+         }
+         .details-content{
+            width: 20%;
+            height: 7rem;
+            @include flex-row;
+            gap: 8px;
+            .img{
+              border-radius: 90px;
+              width: 40px;
+              height: 50px;
+              display: flex;
+              justify-content: center;
+              background-color: $myColor;
+              img{
+                width: 25px;
+                height: 25px;
+                position: relative;
+                top: 10px;
+                filter: brightness(0) invert(1);
+                
+              }
+              
+            }
+            .c2{
+              width: 90%;
+              height: 100%;
+              font-family: $font;
+              h2{
+                position: relative;
+                top: 12px;
+                width: 118px;
+              }
+              input{
+                border: 0;
+                width: 100%;
+                position: relative;
+                bottom: 10px;
+              }
+            }
+          }
+          .search-btn{
+            border: 0;
+            width: 120px;
+            height: 40px;
+            background-color: #00578c;
+            color: white;
+            font-weight: 600;
+            border-radius: 80px;
+            transition: background-color 0.5s ease;
+            
+            &:hover{
+              cursor: pointer;
+              background-color: $myColor;
+              color: black;
+            }
+            
+            
+          }
+        }
+        
+        @keyframes drop {
+          from {
+            top: -20px;
+        }
+        to {
+          top: 0px;
+        }
+      }
+      @keyframes drop1 {
+        from{
+            opacity: 0;
+            top: 0;
+        }
+        to{
+            opacity: 1;
+            top: 30px;
+        }
+           }
+           @keyframes raise {
+            from {
+              transform: translateY(30%);
+              opacity: 0; 
+            }
+            to {
+              transform: translateY(0); 
+              opacity: 1;
+            }
+          }
+        }
+      

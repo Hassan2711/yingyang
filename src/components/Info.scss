@@ -1,0 +1,143 @@
+@import "../main.scss";
+.info{
+    z-index: 4;
+    @include flex-row;
+    background-color: #00add4;
+    .container{
+        width: 50%;
+        .s1{
+            display: flex;
+            gap:30%;
+            margin-top: 30px;
+            h2{
+                font-weight: 600;
+                font-family: $font;
+                width: 400px;
+                letter-spacing: 0.06em;
+                &.animate{
+                    animation: drop-info 1.8s ease-in-out;
+                }
+                
+                
+            }
+            button{
+                background-color: #00578c;
+                color: white;
+                height: 30px;
+                width: 120px;
+                border-radius: 90px;
+                position: relative;
+                top: 40px;
+                border: 0;
+                font-weight: 600;
+                letter-spacing: 0.1em;
+                transition: background-color 0.3s ease;
+                &:hover{
+                    cursor: pointer;
+                    background-color: #c3e3e7;
+                    color: black;
+                }
+                &.animate{
+                    animation: right2left 1.8s ease-in-out;
+                }
+                
+            }
+        }
+        .s2{
+            @include flex-row;
+            height: 350px;
+            gap: 56px;
+            &.animate{
+                animation: raise-info 2.1s ease-in-out;
+            }
+            .c1, .c2, .c3{
+                width: 200px;
+                height: 250px;
+                border-radius: 100px;
+                background: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border: 2px solid #3b3b3b98;
+                h4, p{
+                    font-family: $font;
+                }               
+                p{
+                    width: 180px;
+                    justify-content: center;
+                    margin: 0;
+                    padding-left: 20px;
+                    color: #3b3b3b98;
+                    
+                }
+                .para{
+                    width: 80%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    position: relative;
+                    bottom: 10px;
+                    right: 5px;
+                }
+                .p2{
+                    padding-left: 40px;
+                }
+                .p3{
+                    padding-left: 60px;
+                }
+                .img1, .img2, .img3{
+                    width: 45px;
+                    height: 45px;
+                    border-radius: 100px;
+                    @include flex-row;
+                    img{
+                        width: 25px;
+                        height: 25px;
+                        position: relative;
+                    }
+                }
+                .img1{
+                    background-color:  rgb(13, 157, 228);
+                }
+                .img2{
+                    background-color: orange;
+                }
+                .img3{
+                    background-color: peachpuff;
+                }
+            }
+        }
+        
+    }
+}
+@keyframes drop-info{
+    from{
+        transform: translateY(-40%); 
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0%); 
+        opacity: 1;
+    }
+}
+@keyframes right2left{
+    from{
+        transform: translateX(30%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes raise-info{
+    from{
+        transform: translateY(10%);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

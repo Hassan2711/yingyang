@@ -1,0 +1,125 @@
+@import '../main.scss';
+
+.homee {
+  height: 43em;
+  @include flex-row;
+  position: relative;
+  font-family: $font;
+  
+  .slide {
+      @include flex-row;
+      width: 80%;
+      height: 80%;
+      position: relative;
+      .heading {
+          position: absolute;
+          bottom: 70%;
+          font-size: 30px;
+          text-shadow: 1.5px 1px gray;
+        }
+        
+        .panel1, .panel2, .panel3 {
+            width: 100%;
+            height: 100%;
+            img {
+                width: 100%;
+                height: 100%;
+                border-radius: 2rem;
+                box-shadow: 0 0 40px #1c4574;
+            }
+        }
+    }
+    
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: #1c4574;
+        border: none;
+        width: 4%;
+        height: 9%;
+        border-radius: 100px;
+        cursor: pointer;
+        img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            filter: invert(1);
+        }
+    }
+    
+    .carousel-button.prev {
+        left: 11%;
+        img {
+            top: 5%;
+            right: 6%;
+        }
+    }
+    
+    .carousel-button.next {
+        right: 11%;
+        img {
+            left: 6%;
+        }
+    }
+    
+    .book {
+        width: 10%;
+        height: 6%;
+        font-size: 25px;
+        font-weight: 600;
+        position: absolute;
+        transform: translate(50%, 50%);
+        bottom: 16%;
+        right: 18%;
+        border-radius: 90px;
+        border: 0;
+        background-color: #1c4574;
+        color: white;
+        transition: transform 0.3s;
+        
+        &:hover {
+            cursor: pointer;
+            transform: translate(50%, 50%) scale(1.1);
+        }
+    }
+    
+    .plane {
+        position: absolute;
+        bottom: 18%;
+        right: 18%;
+        transform: rotate(7deg);
+    }
+    
+    .radio-buttons {
+        @include flex-row;
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%;
+        padding: 0.5rem;
+        gap: 3%;
+        
+        input[type="radio"] {
+            display: none; 
+        }
+        
+        .radio-button {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%; 
+            background-color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+            
+            &:hover {
+                background-color: #1c4574; 
+            }
+        }
+        
+        input[type="radio"]:checked + .radio-button {
+            background-color: #1c4574;
+        }
+    }
+}
